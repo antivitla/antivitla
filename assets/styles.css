@@ -1,0 +1,159 @@
+@charset "utf-8";
+
+@import url(http://fonts.googleapis.com/css?family=Russo+One|Playfair+Display|Open+Sans:100,300,400,600,700&subset=cyrillic);
+@import url(/assets/fonts/fedrasans/fedrasans.css);
+
+* { margin: 0px; padding: 0px; }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font: 300 20px/30px "old-standard";
+    color: #2E3438;
+    background-color: rgb(236, 231, 208);
+    overflow-y: scroll;
+}
+
+page {
+    display: block;
+    min-height: 100%;
+}
+
+page article {
+    max-width: 40em;
+    box-sizing: border-box;
+    padding: 0 2rem;
+    margin: 0 auto;
+    /*text-align: center;*/
+}
+
+page header {
+    margin: 0em auto 70px auto;
+    padding: 30px 20px 0 20px;
+    max-width: 1000px;
+    font-family: "Playfair Display", Georgia, sans-serif;
+    font-size: 84px;
+    line-height: 96px;
+    text-align: center;
+    font-weight: bold;
+    color: #5A666E; /*B35E54;*/
+    transition: color 0.5s ease-out;
+}
+
+page header:hover {
+    white-space: normal;
+    color: #5A666E;
+    transition: color 0.5s ease-out;
+}
+
+page footer {
+    text-align: center;
+    transition: color 0.2s ease-out;
+    max-width: 40em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+page footer a {
+    font-size: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font: 300 32px/50px "Fedra Sans";
+    color: #46614A;
+    margin-bottom: 1rem;
+}
+
+@media all and (max-width: 480px) {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 25px;
+        line-height: 40px;
+    }
+
+    .duck {
+        width: 80%;
+        height: auto !important;
+    }
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: normal;
+}
+
+p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+a {
+    color: #B35E54;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+h3 a {
+    text-decoration: none;
+}
+
+.right { text-align: right; margin: 60px 0; }
+
+.duck {
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+    height: 120px;
+}
+
+blockquote {
+    text-align: center;
+}
+
+blockquote:before,
+q:before {
+    content: "«";
+}
+blockquote:after,
+q:after {
+    content: "»";
+}
+blockquote q:before,
+q q:before {
+    content: "„";
+}
+blockquote q:after,
+q q:after {
+    content: "“";
+}
+
+
+drawer {
+    display: block;
+    max-width: 40rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    max-height: 0;
+    transition: all 0.2s ease-out;
+    display: block;
+    font-size: 15px;
+    line-height: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+drawer p {
+    margin: 1rem 0;
+}
+
+drawer.active {
+    max-height: 300px;
+    transition: all 0.5s ease-out;
+}
