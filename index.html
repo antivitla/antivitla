@@ -41,21 +41,6 @@
 				drawer.classList.toggle("active");
 			}
 		}
-
-		function randomEmotion (selector, start, stop) {
-			var emotions = [
-				"ну и дура!",
-				"сама виновата",
-				"чёрт бы её побрал!",
-				"как она меня достала!",
-				"знал бы прикуп, жил бы в Сочи"
-			];
-			document.querySelector(".random-emotion").textContent = (start ? start : "") +
-				emotions[Math.floor(Math.random()*emotions.length)] +
-				(stop ? stop : "");
-		}
-
-		randomEmotion (".random-emotion", "(", ")");
 	</script>
 
 	<!-- Шрифт печатной машинки -->
