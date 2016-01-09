@@ -1,16 +1,20 @@
 @charset "utf-8";
 
-@import url(http://fonts.googleapis.com/css?family=Russo+One|Playfair+Display|Open+Sans:100,300,400,600,700&subset=cyrillic);
 @import url(/assets/fonts/fedrasans/fedrasans.css);
 
 * { margin: 0px; padding: 0px; }
 
-html, body {
-    height: 100%;
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-size: 62.5%;
 }
 
 body {
-    font: 300 20px/30px "old-standard";
+    font-family: "old-standard";
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 3rem;
     color: #2E3438;
     background-color: rgb(236, 231, 208);
     overflow-y: scroll;
@@ -18,7 +22,10 @@ body {
 
 page {
     display: block;
-    min-height: 100%;
+}
+
+page:last-of-type {
+    margin-bottom: 6rem;
 }
 
 page article {
@@ -38,7 +45,7 @@ page header {
     line-height: 96px;
     text-align: center;
     font-weight: bold;
-    color: #5A666E; /*B35E54;*/
+    color: /* #5A666E; */ #B35E54;
     transition: color 0.5s ease-out;
 }
 
@@ -156,4 +163,45 @@ drawer p {
 drawer.active {
     max-height: 300px;
     transition: all 0.5s ease-out;
+}
+
+article .highlight {
+    margin-left: -2rem;
+    margin-right: -2rem;
+    padding: 1.5rem 2rem;
+    background-color: #D46F63;
+    border-bottom: solid #AB584E 3px;
+    /*box-shadow: 0px 3px 0px 1px #AB584E;*/
+    border-radius: 3px;
+}
+
+article .highlight h3 {
+    color: rgb(248, 229, 187);
+    margin: 0;
+}
+
+figure {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure figcaption {
+    /*position: absolute;*/
+    display: block;
+    white-space: nowrap;
+    /*left: 0%;*/
+    /*bottom: 3rem;*/
+    /*transform-origin: 0% 0%;*/
+    /*transform: rotate(-90deg);*/
+    /*opacity: 0.5;*/
+}
+
+ordered-list {
+    counter-reset: list 0;
+}
+
+ordered-list > *:before {
+    counter-increment: list 1;
+    content: counter(list) ". ";
 }
