@@ -7,14 +7,14 @@
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    font-size: 62.5%;
+    font-size: 10px;
 }
 
 body {
     font-family: "old-standard";
-    font-weight: 300;
     font-size: 2rem;
     line-height: 3rem;
+    font-weight: 300;
     color: #2E3438;
     background-color: rgb(236, 231, 208);
     overflow-y: scroll;
