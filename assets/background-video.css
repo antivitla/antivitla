@@ -71,13 +71,12 @@ volume.active:before {
 
 .video-copyright {
     position: fixed;
-    bottom: 3rem;
-    right: 2rem;
-    font-weight: bold;
+    bottom: 1rem;
+    right: 3rem;
     color: whitesmoke;
     white-space: nowrap;
     z-index: 2;
-    font-size: 2rem;
+    font-size: 1.5rem;
     display: none;
     transform: rotate(90deg);
     transform-origin: 100% 50%;

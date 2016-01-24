@@ -18,7 +18,7 @@
 			top: 0;
 			bottom: 0;
 			right: 0;
-			background-color: rgba(236, 231, 208, 0.8);
+			background-color: rgba(236, 231, 208, 0.65);
 			display: block;
 			z-index: -1;
 		}
@@ -27,12 +27,12 @@
 <body>
 
 	<div class="background-video">
-		<iframe src="//coub.com/embed/4aa66?muted=true&autostart=true&originalSize=false&hideTopBar=true&startWithHD=false" allowfullscreen="true" frameborder="0" width="100%" height="100%"></iframe>
+		<iframe src="//coub.com/embed/4aa66?muted=false&autostart=true&originalSize=false&hideTopBar=true&startWithHD=false" allowfullscreen="true" frameborder="0" width="100%" height="100%"></iframe>
 		<!-- <script async src="//c-cdn.coub.com/embed-runner.js"></script> -->
 	</div>
 
 	<a class="video-copyright" href="http://coub.com/view/4aa66">coub.com/view/4aa66</a>
-	<volume onclick="toggleCoubSound(this);"><icon class="fa fa-music"></icon><icon class="fa"></icon></volume>
+	<volume class="active" onclick="toggleCoubSound(this);"><icon class="fa fa-music"></icon><icon class="fa"></icon></volume>
 
 	<script>
 		function toggleCoubSound (soundControl) {
