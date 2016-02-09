@@ -1,2 +1,4 @@
 .git/*
 web-server.*
+bower_components
+node_modules

@@ -201,7 +201,7 @@ ordered-list {
     counter-reset: list 0;
 }
 
-ordered-list > *:before {
+ordered-list > list-item:before {
     counter-increment: list 1;
     content: counter(list) ". ";
 }
