@@ -6,59 +6,75 @@
 	<title>Витла</title>
 	<link rel="stylesheet" href="/assets/styles.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/background-video.css">
 	<!-- OpenID -->
 	<link rel="openid.server" href="http://www.myopenid.com/server">
 	<link rel="openid.delegate" href="http://antivitla.myopenid.com/">
 	<style>
-		body:after {
-			content: " ";
-			position: fixed;
-			left: 0;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			background-color: rgba(236, 231, 208, 0.65);
-			display: block;
-			z-index: -1;
+		a {
+			color: rgba(117, 20, 8, 0.75);
 		}
 	</style>
 </head>
 <body>
 
-	<div class="background-video">
-		<iframe src="//coub.com/embed/4aa66?muted=false&autostart=true&originalSize=false&hideTopBar=true&startWithHD=false" allowfullscreen="true" frameborder="0" width="100%" height="100%"></iframe>
+	<div class="banner-video">
+		<iframe width="100%" height="100%" src="https://www.youtube.com/embed/_t5o3Smgzrg?rel=0&amp;controls=0&amp;showinfo=0&amp;loop=1&amp;autoplay=1&amp;playlist=_t5o3Smgzrg" frameborder="0" allowfullscreen></iframe>
+		<!-- <iframe class="video audio" src="//coub.com/embed/daxcj?muted=false&amp;autostart=true&amp;originalSize=true&amp;hideTopBar=true&amp;startWithHD=true" allowfullscreen="true" frameborder="0" width="100%" height="100%"></iframe> -->
 		<!-- <script async src="//c-cdn.coub.com/embed-runner.js"></script> -->
 	</div>
 
-	<a class="video-copyright" href="http://coub.com/view/4aa66">coub.com/view/4aa66</a>
+	<div class="background-audio">
+		<iframe class="audio" src="//coub.com/embed/daxcj?muted=false&amp;autostart=true&amp;originalSize=false&amp;hideTopBar=true&amp;startWithHD=false" allowfullscreen="true" frameborder="0" width="100%" height="100%"></iframe>
+	</div>
+
+
+	<!-- <a class="video-copyright" href="http://coub.com/view/4aa66">coub.com/view/4aa66</a> -->
 	<volume class="active" onclick="toggleCoubSound(this);"><icon class="fa fa-music"></icon><icon class="fa"></icon></volume>
 
 	<script>
-		function toggleCoubSound (soundControl) {
-			soundControl.classList.toggle("active");
-			var iframe = document.querySelector("iframe"),
+		function toggleCoubSound (soundControl, force) {
+			var iframe = document.querySelector("iframe.audio"),
 				src = iframe.getAttribute("src");
-			if (src.match(/muted=true/g)) {
-				iframe.setAttribute("src", src.replace("muted=true", "muted=false"));
+
+			if (force === true) {
+				soundControl.classList.add("active");
+				if (src.match(/muted=true/g)) {
+					iframe.setAttribute("src", src.replace("muted=true", "muted=false"));
+				}
+				localStorage.setItem("sound", true);
+			} else if (force === false) {
+				soundControl.classList.remove("active");
+				if (!src.match(/muted=true/g)) {
+					iframe.setAttribute("src", src.replace("muted=false", "muted=true"));
+				}
+				localStorage.setItem("sound", false);
 			} else {
-				iframe.setAttribute("src", src.replace("muted=false", "muted=true"));
+				soundControl.classList.toggle("active");
+				if (src.match(/muted=true/g)) {
+					iframe.setAttribute("src", src.replace("muted=true", "muted=false"));
+				} else {
+					iframe.setAttribute("src", src.replace("muted=false", "muted=true"));
+				}
+				if (localStorage.getItem("sound") == "true") {
+					localStorage.setItem("sound", false);
+				} else {
+					localStorage.setItem("sound", true);
+				}
 			}
 		}
+
+		toggleCoubSound(document.querySelector("volume"), localStorage.getItem("sound") != "false");
 	</script>
 
-	<drawer>
-		<p><img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/VisualEditor_-_Icon_-_Link.svg" height="40"><!-- <i class="fa fa-unlock" style="font-size: 1.5rem;"></i> --></p>
-		<p><a href="https://goo.gl/upQIZq" target="_blank">Ноты для гитары</a> (Иванов-Крамской, Пухоль, Бах и другие)</p>
-	</drawer>
 
-	<page style="text-align: center; display: flex; flex-direction: column; justify-content: center;">
-		<header>
-			<img class="duck" src="/assets/images/duck.png" title="Это утка в камышах, а остальное - мой сайт." onmousedown="toggleDrawer();">
+	<page style="text-align: center; display: flex; flex-direction: column; justify-content: center; background-color: #f8b172;">
+		<header style="position: absolute; width: 100%; left: 50%; top: 60%; transform: translateX(-50%) translateY(-50%);">
+			<img class="duck" src="/assets/images/duck.png" title="Это гусь, а остальное - мой сайт." zonmousedown="toggleDrawer();">
 		</header>
 
+
 		<article>
-			<p>Да я же пуст! Я, Такой-то Виталий Викторович, года рождения, города области, паспорта серии, выдан и прописан &mdash; не имею никакого смысла.</p>
+			<p style="position: absolute; left: 50%; top: 4rem; transform: translateX(-50%); color: #0f2d43; max-width: 700px; width: 80%;">Да я же пуст! Я, Такой-то Виталий Викторович, года рождения, города области, паспорта серии, выдан и прописан &mdash; не имею никакого смысла.</p>
 			<h3><a href="rabota-s-neopredeljonnostju.html">Работа с неопределенностью</a></h3>
 			<h3><a href="pro-poezd.html">Про поезд</a></h3>
 			<!-- <h3><a href="test.html">Тест @рассказ</a></h3> -->
@@ -82,19 +98,25 @@
 				<list-item><p>Нужно полностью забыть о себе</p></list-item>
 				<list-item><p>(Действительно по кругу) Нет смысла кроме дел о духе. Буквально - ни фильмы, ни проектики на компьютере, ни другая приятная деятельность.</p></list-item> -->
 
-<!-- 				<list-item>
+				<!-- <list-item>
 					<h3>Принципы работы с сознанием</h3>
 					<p><strong>И+</strong> (повышение интенсивности (текущего момента))</p>
 					<p><strong>2&#9876;</strong> (два врага - потакание удовольствиям и желанию сдаться)</p>
 					<p><strong>И&rarr;</strong> (преодоление инерции)</p>
 				</list-item> -->
 
+			<drawer class="active" zstyle="position: absolute; left: 50%; margin-left: -20rem; top: 0; width: 100%;">
+				<p><img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/VisualEditor_-_Icon_-_Link.svg" height="40"><!-- <i class="fa fa-unlock" style="font-size: 1.5rem;"></i> --></p>
+				<p><a href="https://goo.gl/upQIZq" target="_blank">Ноты для гитары</a> (Клейньянс, Максимо Пухоль, <br>Иванов-Крамской, Бах и другие)</p>
+			</drawer>
 		</article>
 
-		<footer>
-			<!-- <p>antivitla(a)gmail.com</p> -->
-		</footer>
+<!-- 		<footer>
+			<p>antivitla(a)gmail.com</p>
+		</footer> -->
 	</page>
+
+	<!-- <div style="background: #9DBDE4 url(http://wildnaturephoto.ru/wp-content/uploads/2011/11/%D0%BA%D0%B0%D0%BD%D1%8E%D0%BA.jpg) no-repeat left center; height: 670px; width: 100%"></div> -->
 
 	<script>
 		function toggleDrawer() {
