@@ -14,67 +14,25 @@
 			color: rgba(117, 20, 8, 0.75);
 		}
 	</style>
+
+	<script src="/assets/js/media-banner.js"></script>
 </head>
 <body>
 
-	<div class="banner-video">
-		<iframe width="100%" height="100%" src="https://www.youtube.com/embed/_t5o3Smgzrg?rel=0&amp;controls=0&amp;showinfo=0&amp;loop=1&amp;autoplay=1&amp;playlist=_t5o3Smgzrg" frameborder="0" allowfullscreen></iframe>
-	</div>
-
-	<div class="background-audio">
-		<iframe class="audio" src="//coub.com/embed/daxcj?muted=false&amp;autostart=true&amp;originalSize=false&amp;hideTopBar=true&amp;startWithHD=false" allowfullscreen="true" frameborder="0" width="100%" height="100%"></iframe>
-	</div>
-
-
-	<!-- <a class="video-copyright" href="http://coub.com/view/4aa66">coub.com/view/4aa66</a> -->
-	<volume class="active" onclick="toggleCoubSound(this);"><icon class="fa fa-music"></icon><icon class="fa"></icon></volume>
-
+	<div class="media-banner" style="height: 100vh;"></div>
 	<script>
-		var playlist = ["daz68", "daxcj"];
-
-		function setTrack (newId) {
-			var iframe = document.querySelector("iframe.audio"),
-				src = iframe.getAttribute("src"),
-				id = src.split("embed/")[1].split("?")[0]
-			iframe.setAttribute("src", src.replace(id, newId));
-		}
-
-		setTrack(playlist[parseInt(Math.random()*2)]);
-
-		function toggleCoubSound (soundControl, force) {
-			var iframe = document.querySelector("iframe.audio"),
-				src = iframe.getAttribute("src");
-
-			if (force === true) {
-				soundControl.classList.add("active");
-				if (src.match(/muted=true/g)) {
-					iframe.setAttribute("src", src.replace("muted=true", "muted=false"));
-				}
-				localStorage.setItem("sound", true);
-			} else if (force === false) {
-				soundControl.classList.remove("active");
-				if (!src.match(/muted=true/g)) {
-					iframe.setAttribute("src", src.replace("muted=false", "muted=true"));
-				}
-				localStorage.setItem("sound", false);
-			} else {
-				soundControl.classList.toggle("active");
-				if (src.match(/muted=true/g)) {
-					iframe.setAttribute("src", src.replace("muted=true", "muted=false"));
-				} else {
-					iframe.setAttribute("src", src.replace("muted=false", "muted=true"));
-				}
-				if (localStorage.getItem("sound") == "true") {
-					localStorage.setItem("sound", false);
-				} else {
-					localStorage.setItem("sound", true);
-				}
+		var banner = new MediaBanner(document.querySelector(".media-banner"));
+		banner.setMix({
+			video: {
+				type: "youtube",
+				key: "_t5o3Smgzrg"
+			},
+			audio: {
+				type: "coub",
+				key: ["daz68", "daxcj"][parseInt(Math.random()*2)]
 			}
-		}
-
-		toggleCoubSound(document.querySelector("volume"), localStorage.getItem("sound") != "false");
+		});
 	</script>
-
 
 	<page style="text-align: center; display: flex; flex-direction: column; justify-content: center; background-color: #f8b172;">
 		<header style="position: absolute; width: 100%; left: 50%; top: 60%; transform: translateX(-50%) translateY(-50%);">
@@ -86,6 +44,7 @@
 			<p style="position: absolute; left: 50%; top: 4rem; transform: translateX(-50%); color: #0f2d43; max-width: 700px; width: 80%;">Да я же пуст! Я, Такой-то Виталий Викторович, года рождения, города области, паспорта серии, выдан и прописан &mdash; не имею никакого смысла.</p>
 			<h3><a href="rabota-s-neopredeljonnostju.html">Работа с неопределенностью</a></h3>
 			<h3><a href="pro-poezd.html">Про поезд</a></h3>
+
 			<!-- <h3><a href="test.html">Тест @рассказ</a></h3> -->
 			<!-- <p><a href="zakladki.html">Закладки</a></p> -->
 
