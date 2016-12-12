@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^antivitla.ru/kastaneda/$
+RewriteRule ^(.*)$ http://kastaneda.antivitla.ru/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www.antivitla.ru/kastaneda/$
+RewriteRule ^(.*)$ http://kastaneda.antivitla.ru/$1 [R=301,L]
