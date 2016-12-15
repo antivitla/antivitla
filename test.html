@@ -16,8 +16,15 @@
 			<span data-fontfit>Тест</span>
 		</header>
 
-		<article>
+		<article class="hidden-reality">
+			<p class="handwrite">
+				<img src="assets/images/test/page_01.png" alt="Страница 1">
+				<br>
+				<img src="assets/images/test/page_02.png" alt="Страница 2">
+			</p>
+		</article>
 
+		<article class="visible-reality">
 			<p>Мы ехали уже довольно долго.<br>
 			- Где мы? - спросил я.<br>
 			Вокруг был туман. Женя высекал искры из зажигалки.<br>
@@ -39,7 +46,7 @@
 		</article>
 
 		<footer>
-			<symbol>&#216;</symbol>
+			<symbol id="hidden-reality-reveal">&#216;</symbol>
 			<date>(лето 2021, то есть 2012)</date>
 		</footer>
 	</page>
@@ -47,6 +54,8 @@
 
 	<script src="https://cdn.rawgit.com/antivitla/fontfit/master/fontfit.js"></script>
 	<script src="https://cdn.rawgit.com/antivitla/headlift/master/headlift.js"></script>
+
+	<script src="/assets/js/hidden-reality.js"></script>
 
 	<!-- Шрифт печатной машинки -->
 	<script src="http://use.edgefonts.net/old-standard:n4,i4,n7:all.js"></script>
