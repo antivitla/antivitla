@@ -2,28 +2,19 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<title>Витла</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/assets/styles.css">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<!-- OpenID -->
 	<link rel="openid.server" href="http://www.myopenid.com/server">
 	<link rel="openid.delegate" href="http://antivitla.myopenid.com/">
-	<style>
-		a {
-			color: rgba(117, 20, 8, 0.75);
-		}
-
-		nobr {
-			white-space: nowrap;
-		}
-	</style>
-
-	<script src="/assets/js/media-banner.js"></script>
 </head>
 <body>
 
 	<div class="media-banner" style="height: 100vh;"></div>
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script src="/assets/js/media-banner.js"></script>
 	<script>
 		var banner = new MediaBanner(document.querySelector(".media-banner"));
 		banner.setMix({
@@ -35,10 +26,18 @@
 				type: "coub",
 				key: ["daz68", "daxcj"][parseInt(Math.random()*2)]
 			}
+			// video: {
+			// 	type: "coub",
+			// 	key: "daz68"
+			// },
+			// audio: {
+			// 	type: "coub",
+			// 	key: "daz68"
+			// }
 		});
 	</script>
 
-	<page style="text-align: center; display: flex; flex-direction: column; justify-content: center; background-color: #f8b172;">
+	<page class="home">
 		<header style="position: absolute; width: 100%; left: 50%; top: 60%; transform: translateX(-50%) translateY(-50%);">
 			<img class="duck" src="/assets/images/duck.png" title="Это гусь, а остальное - мой сайт." zonmousedown="toggleDrawer();">
 		</header>
@@ -47,53 +46,30 @@
 		<article>
 			<p style="position: absolute; left: 50%; top: 4rem; transform: translateX(-50%); color: #0f2d43; max-width: 700px; width: 80%;">Да я же пуст! Я, Такой-то Виталий Викторович, года рождения, города области, паспорта серии, выдан и прописан &mdash; не имею никакого смысла.</p>
 			<h3><a href="rabota-s-neopredeljonnostju.html">Работа с неопределенностью</a></h3>
+			<h3><a href="http://kastaneda.antivitla.ru">Кастанеда.Слова</a></h3>
+
+			<p class="divider"><span class="fa fa-snowflake-o"></span></p>
+
+			<h3><a href="polyot.html">Полёт</a></h3>
+			<h3><a href="test.html">Тест</a></h3>
 			<h3><a href="pro-poezd.html">Про поезд</a></h3>
+			<h3><a href="obo-mne.html">Обо мне</a></h3>
+			<h3><a href="sultan-koshek.html">Султан кошек</a></h3>
+			<h3><a href="pisatel-i-muza.html">Писатель и Муза</a></h3>
 
-			<!-- <h3><a href="test.html">Тест @рассказ</a></h3> -->
-			<!-- <p><a href="zakladki.html">Закладки</a></p> -->
-
-			<!-- <ordered-list>
-				<list-item><p>Мне ничего не нужно, достаточно самой жизни.</p></list-item>
-				<list-item><p>[..] реализуется даже если ничего не делать.</p></list-item>
-				<list-item><p>Усилия нужно предпринимать не в пространстве, а перпендикулярно... текущему мгновению (интенсивность?).</p></list-item>
-				<list-item><p>Упражнения - это когда хорошо в какой-то позе. Все телесные ощущения приятны - и напряжение и боль.</p></list-item>
-				<list-item><p>Ничто из того что ты думаешь не обязательно делать.</p></list-item>
-
-				<figure style="width: 400px;">
-					<img src="assets/images/zy.png" alt="Зачем?">
-					<figcaption style="position: absolute; right: 10rem; bottom: 2rem; font-size: 1.5rem;">
-						<small><a href="https://www.facebook.com/anna.novitskaya.3?fref=ts"><i class="fa fa-facebook"></i> anna.novitskaya</a></small>
-					</figcaption>
-				</figure>
-
-				<list-item><p>Всё имеет смысл, даже то за что потом стыдно.</p></list-item>
-				<list-item><p>Нужно полностью забыть о себе</p></list-item>
-				<list-item><p>(Действительно по кругу) Нет смысла кроме дел о духе. Буквально - ни фильмы, ни проектики на компьютере, ни другая приятная деятельность.</p></list-item> -->
-
-				<!-- <list-item>
-					<h3>Принципы работы с сознанием</h3>
-					<p><strong>И+</strong> (повышение интенсивности (текущего момента))</p>
-					<p><strong>2&#9876;</strong> (два врага - потакание удовольствиям и желанию сдаться)</p>
-					<p><strong>И&rarr;</strong> (преодоление инерции)</p>
-				</list-item> -->
+			<p class="divider"><span class="fa fa-link"></span></p>
 
 			<drawer class="active" zstyle="position: absolute; left: 50%; margin-left: -20rem; top: 0; width: 100%;">
-				<p><img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/VisualEditor_-_Icon_-_Link.svg" height="40"><!-- <i class="fa fa-unlock" style="font-size: 1.5rem;"></i> --></p>
+				<!-- <p><span class="fa fa-link"></span><img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/VisualEditor_-_Icon_-_Link.svg" height="40"><i class="fa fa-unlock" style="font-size: 1.5rem;"></i></p> -->
 				<p><a href="https://goo.gl/upQIZq" target="_blank">Ноты для гитары</a> (<nobr>Никита Кошкин</nobr>, Клейньянс, <nobr>Максимо Пухоль</nobr>, <nobr>Иванов-Крамской</nobr>, Бах и другие)</p>
 			</drawer>
-		</article>
 
-<!-- 		<footer>
-			<p>antivitla(a)gmail.com</p>
-		</footer> -->
+			<p class="divider"><a href="http://vk.com/antivitla" class="fa fa-vk"></a></p>
+		</article>
 	</page>
 
-	<!-- <div style="background: #9DBDE4 url(http://wildnaturephoto.ru/wp-content/uploads/2011/11/%D0%BA%D0%B0%D0%BD%D1%8E%D0%BA.jpg) no-repeat left center; height: 670px; width: 100%"></div> -->
+	<div style="background: #9DBDE4 url(assets/images/kanyuk.jpg) no-repeat left center; height: 100vh; width: 100%; background-size: 50% auto; border-top: solid #ece7d0 5px;"></div>
 
-<!-- 	<div class="banner-video">
-		<iframe class="audio" src="//coub.com/embed/daz68?muted=false&amp;autostart=true&amp;originalSize=true&amp;hideTopBar=true&amp;startWithHD=true" allowfullscreen="true" frameborder="0" width="100%" height="100%"></iframe>
-		<script async src="//c-cdn.coub.com/embed-runner.js"></script>
-	</div> -->
 
 	<script>
 		function toggleDrawer() {

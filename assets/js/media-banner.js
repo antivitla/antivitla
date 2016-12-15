@@ -3,10 +3,10 @@ function MediaBanner (element) {
   this.element.classList.add("media-banner");
 
   // Styles (added later)
-  this.styleElement = document.createElement("style");
-  this.styleElement.type = "text/css";
-  this.styleElement.appendChild(document.createTextNode(".media-banner { overflow: hidden; position: relative; } .media-banner iframe.video {display: block; height: 100%; width: 200%; position: relative; left: 50%; top: 50%; transform: translate3d(-50%, -50%, 0); z-index: 0; } .media-banner iframe.audio { position: absolute; z-index: -1; visibility: hidden; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; overflow: hidden; } .media-banner .copyright { position: absolute; bottom: 0.5rem; color: rgba(255,255,255,0.5); font-weight: bold; text-decoration: none; font-size: x-small; z-index: 1; } .media-banner .copyright.video { right: 0.5rem} .media-banner .copyright.audio { left: 0.5rem; } .media-banner .copyright i { margin-right: 0.5em; } .media-banner:after { content: ' '; display: block; position: absolute; left: 0; top: 0; right: 0; bottom: 0; } .media-banner .volume { position: fixed; z-index: 1; right: 3rem; top: 2rem; color: rgba(255,255,255,0.75); cursor: pointer; font-size: xx-large; } .media-banner .volume:before { content: ' '; position: absolute; top: 50%; margin-top: -4px; height: 3px; width: 150%; left: -10%; transform: rotate(20deg); background-color: rgba(255,255,255,0.75); font-size: small; } .media-banner .volume.active:before { content: none; }"));
-  this.element.appendChild(this.styleElement);
+  // this.styleElement = document.createElement("style");
+  // this.styleElement.type = "text/css";
+  // this.styleElement.appendChild(document.createTextNode(".media-banner { overflow: hidden; position: relative; } .media-banner iframe.video {display: block; height: 100%; width: 200%; position: relative; left: 50%; top: 50%; transform: translate3d(-50%, -50%, 0); z-index: 0; } .media-banner iframe.audio { position: absolute; z-index: -1; visibility: hidden; left: 0; top: 0; right: 0; bottom: 0; width: 100%; height: 100%; overflow: hidden; } .media-banner .copyright { position: absolute; bottom: 0.5rem; color: rgba(255,255,255,0.5); font-weight: bold; text-decoration: none; font-size: x-small; z-index: 1; } .media-banner .copyright.video { right: 0.5rem} .media-banner .copyright.audio { left: 0.5rem; } .media-banner .copyright i { margin-right: 0.5em; } .media-banner:after { content: ' '; display: block; position: absolute; left: 0; top: 0; right: 0; bottom: 0; } .media-banner .volume { position: fixed; z-index: 1; right: 3rem; top: 2rem; color: rgba(255,255,255,0.75); cursor: pointer; font-size: xx-large; } .media-banner .volume:before { content: ' '; position: absolute; top: 50%; margin-top: -4px; height: 3px; width: 150%; left: -10%; transform: rotate(20deg); background-color: rgba(255,255,255,0.75); font-size: small; } .media-banner .volume.active:before { content: none; }"));
+  // this.element.appendChild(this.styleElement);
 
   // Add http://fontawesome.io/ icons
   if (!document.querySelector("link[href*='font-awesome']")) {
@@ -25,6 +25,7 @@ MediaBanner.prototype.setMix = function (options) {
     options.video.muted = true;
     this.setVideo(options.video);
     this.element.querySelector(".volume.video").style.display = "none";
+    this.element.setAttribute("video-type", options.video.type);
   }
 }
 
@@ -94,7 +95,30 @@ MediaBanner.prototype.embed = function (options) {
 
   switch (options.type) {
     case "youtube":
-      iframe.setAttribute("src", "https://www.youtube.com/embed/" + options.key + "?rel=0&amp;controls=0&amp;showinfo=0&amp;loop=1&amp;autoplay=" + (options.stopped ? "0" : "1") + "&amp;playlist=" + options.key);
+      // Listen to ready and remove placeholder image
+      if (options.media == "video") {
+        window.onYouTubeIframeAPIReady = function () {
+          var player = new YT.Player('media-banner-video', {
+            events: {
+              onReady: function (event) {
+                console.log("ready", event);
+              },
+              onStateChange: function (event) {
+                console.log("state", event.data);
+                if (event.data == YT.PlayerState.PLAYING) {
+                  console.log("playing");
+                  banner.element.classList.add("loaded");
+                } else if (event.data == YT.PlayerState.ENDED) {
+                  console.log("ended");
+                  banner.element.classList.remove("loaded");
+                }
+              }
+            }
+          });
+        }
+      }
+      iframe.setAttribute("src", "https://www.youtube.com/embed/" + options.key + "?rel=0&amp;controls=0&amp;showinfo=0&amp;loop=1&amp;enablejsapi=1&autoplay=" + (options.stopped ? "0" : "1") + "&amp;playlist=" + options.key);
+      iframe.id = "media-banner-video";
       copyright.href = "https://youtu.be/" + options.key;
       copyright.innerHTML += copyright.href;
       copyright.title += copyright.href;
@@ -102,6 +126,12 @@ MediaBanner.prototype.embed = function (options) {
       break;
     case "coub":
       iframe.setAttribute("src", "//coub.com/embed/" + options.key + "?muted=" + (options.muted ? "true" : "false") + "&amp;autostart=" + (options.stopped ? "false" : "true") + "&amp;originalSize=true&amp;hideTopBar=true&amp;startWithHD=true");
+      if (options.media == "video") {
+        console.log(iframe);
+        // iframe.contentWindow.addEventListener('message', function (event, data) {
+        //   console.log(event, data);
+        // });
+      }
       copyright.href = "http://coub.com/view/" + options.key;
       copyright.innerHTML += copyright.href;
       copyright.title += copyright.href;
