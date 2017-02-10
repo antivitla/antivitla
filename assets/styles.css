@@ -378,17 +378,3 @@ footer date {
   display: block;
   margin: 0 auto;
 }
-
-/* Reality */
-
-.hidden-reality {
-  display: none;
-}
-
-body.hidden-reality-revealed .visible-reality {
-  display: none;
-}
-
-body.hidden-reality-revealed .hidden-reality {
-  display: block;
-}
