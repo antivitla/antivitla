@@ -45,7 +45,11 @@ MediaBanner.prototype.setAudio = function (options) {
 }
 
 MediaBanner.prototype.add = function (options) {
-  options.muted = (localStorage.getItem("MediaBannerVolume") == "false");
+  if (options.media == "audio" && options.type == "youtube") {
+    options.stopped = (localStorage.getItem("MediaBannerVolume") == "false");
+  } else if (options.media == "audio" && options.type == "coub") {
+    options.muted = (localStorage.getItem("MediaBannerVolume") == "false");
+  }
   this.element.appendChild(this.embed(options));
 }
 
@@ -82,14 +86,13 @@ MediaBanner.prototype.embed = function (options) {
   var sound = document.createElement("a");
   sound.classList.add("volume", options.media);
   sound.title = "Звук вкл/выкл";
-  if (!options.muted) {
+  if (!options.muted && !options.stopped) {
     sound.classList.add("active");
   }
   sound.innerHTML = "<i class='fa fa-music'></i>";
   banner = this;
   sound.addEventListener("click", function (event) {
     MediaBanner.prototype.volumeToggle.call(this, sound);
-    // this.volumeToggle(this, event);
   }.bind(this));
   wrapper.appendChild(sound);
 
@@ -199,5 +202,28 @@ MediaBanner.prototype.volumeToggle = function (element, force) {
         }
       }
       break;
+    case "youtube":
+      if (force === true) {
+        element.classList.add("active");
+        if (src.match(/autoplay=0/g)) {
+          audio.setAttribute("src", src.replace("autoplay=0", "autoplay=1"));
+        }
+        localStorage.setItem("MediaBannerVolume", true);
+      } else if (force === false) {
+        element.classList.remove("active");
+        if (!src.match(/autoplay=1/g)) {
+          audio.setAttribute("src", src.replace("autoplay=1", "autoplay=0"));
+        }
+        localStorage.setItem("MediaBannerVolume", false);
+      } else {
+        element.classList.toggle("active");
+        if (src.match(/autoplay=1/g)) {
+          audio.setAttribute("src", src.replace("autoplay=1", "autoplay=0"));
+          localStorage.setItem("MediaBannerVolume", false);
+        } else {
+          audio.setAttribute("src", src.replace("autoplay=0", "autoplay=1"));
+          localStorage.setItem("MediaBannerVolume", true);
+        }
+      }
   }
 }
