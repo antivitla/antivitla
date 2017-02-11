@@ -378,3 +378,11 @@ footer date {
   display: block;
   margin: 0 auto;
 }
+
+/* variants */
+
+span[title] {
+  border-bottom: dashed 1px;
+  color: #B35E54;
+  cursor: help;
+}
