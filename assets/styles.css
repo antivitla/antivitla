@@ -233,8 +233,8 @@ ordered-list > list-item > *:first-child:before {
 /* Divider */
 
 p.divider {
-	margin-bottom: 10px;
-  margin-top: 25px;
+  font-size: 100px;
+  line-height: 1.5;
 }
 
 /* Media Banner */
