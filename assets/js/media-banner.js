@@ -91,7 +91,7 @@ MediaBanner.prototype.embed = function (options) {
     sound.classList.add("active");
   }
   sound.innerHTML = "<i class='fa fa-music'></i>";
-  banner = this;
+  var self = this;
   sound.addEventListener("click", function (event) {
     MediaBanner.prototype.volumeToggle.call(this, sound);
   }.bind(this));
@@ -99,22 +99,23 @@ MediaBanner.prototype.embed = function (options) {
 
   switch (options.type) {
     case "youtube":
+      console.log("youtube video", self.element, self);
       // Listen to ready and remove placeholder image
       if (options.media == "video") {
         window.onYouTubeIframeAPIReady = function () {
           var player = new YT.Player(iframe.id, {
             events: {
               onReady: function (event) {
-                console.log("ready", event, banner.element);
+                console.log("ready", event.target, self.element);
               },
               onStateChange: function (event) {
-                console.log("state", event.data, banner.element);
+                console.log("state", event.data, event.target, self.element);
                 if (event.data == YT.PlayerState.PLAYING) {
-                  console.log("playing", banner.element);
-                  banner.element.classList.add("loaded");
+                  console.log("playing",  event.target, self.element);
+                  self.element.classList.add("loaded");
                 } else if (event.data == YT.PlayerState.ENDED) {
-                  console.log("ended", banner.element);
-                  banner.element.classList.remove("loaded");
+                  console.log("ended", event.target, self.element);
+                  self.element.classList.remove("loaded");
                 }
               }
             }
@@ -159,10 +160,10 @@ MediaBanner.prototype.cover = function () {
     return;
   }
   if (parentWidth > rect.height * 1.7778) {
-    iframe.style.width = "100%";
+    iframe.style.width = "100.2%";
     iframe.style.height = (rect.width / 1.7778) + 5 + "px";
   } else {
-    iframe.style.height = "100%";
+    iframe.style.height = "100.2%";
     iframe.style.width = (rect.height * 1.7778) + 5 + "px";
   }
   return this;
