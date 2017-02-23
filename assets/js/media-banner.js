@@ -67,6 +67,7 @@ MediaBanner.prototype.embed = function (options) {
   var iframe = document.createElement("iframe");
   iframe.setAttribute("frameborder", 0);
   iframe.classList.add(options.media);
+  iframe.id = 'media-banner-video-' + parseInt(Math.random()*1000000, 10);
   wrapper.appendChild(iframe);
 
   var copyright = document.createElement("a");
@@ -101,34 +102,35 @@ MediaBanner.prototype.embed = function (options) {
       // Listen to ready and remove placeholder image
       if (options.media == "video") {
         window.onYouTubeIframeAPIReady = function () {
-          var player = new YT.Player('media-banner-video', {
+          var player = new YT.Player(iframe.id, {
             events: {
               onReady: function (event) {
-                console.log("ready", event);
+                console.log("ready", event, banner.element);
               },
               onStateChange: function (event) {
-                console.log("state", event.data);
+                console.log("state", event.data, banner.element);
                 if (event.data == YT.PlayerState.PLAYING) {
-                  console.log("playing");
+                  console.log("playing", banner.element);
                   banner.element.classList.add("loaded");
                 } else if (event.data == YT.PlayerState.ENDED) {
-                  console.log("ended");
+                  console.log("ended", banner.element);
                   banner.element.classList.remove("loaded");
                 }
               }
             }
           });
+          window.youtube = window.youtube || {};
+          window.youtube[iframe.id] = player;
         }
       }
-      iframe.setAttribute("src", "https://www.youtube.com/embed/" + options.key + "?rel=0&amp;controls=0&amp;showinfo=0&amp;loop=1&amp;enablejsapi=1&autoplay=" + (options.stopped ? "0" : "1") + "&amp;playlist=" + options.key);
-      iframe.id = "media-banner-video";
+      iframe.setAttribute("src", "https://www.youtube.com/embed/" + options.key + "?rel=0&controls=0&showinfo=0&loop=1&enablejsapi=1&autoplay=" + (options.stopped ? "0" : "1") + "&playlist=" + options.key);
       copyright.href = "https://youtu.be/" + options.key;
       copyright.innerHTML += copyright.href;
       copyright.title += copyright.href;
       sound.setAttribute("type", "youtube");
       break;
     case "coub":
-      iframe.setAttribute("src", "//coub.com/embed/" + options.key + "?muted=" + (options.muted ? "true" : "false") + "&amp;autostart=" + (options.stopped ? "false" : "true") + "&amp;originalSize=true&amp;hideTopBar=true&amp;startWithHD=true");
+      iframe.setAttribute("src", "//coub.com/embed/" + options.key + "?muted=" + (options.muted ? "true" : "false") + "&autostart=" + (options.stopped ? "false" : "true") + "&originalSize=true&hideTopBar=true&startWithHD=true");
       if (options.media == "video") {
         console.log(iframe);
         // iframe.contentWindow.addEventListener('message', function (event, data) {
