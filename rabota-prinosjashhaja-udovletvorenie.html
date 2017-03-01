@@ -14,22 +14,39 @@
 	<title>Работа, приносящая удовлетворение</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/styles.css">
+	<script src="assets/js/media-banner.js"></script>
 </head>
 <body>
 
-	<page>
-		<header data-headlift>
-			<span data-fontfit>Работа, приносящая</span> <span data-fontfit>удовлетворение</span>
-		</header>
 
+	<div id="deadman-banner" class="media-banner" style="height: calc(100vh - 150px);"></div>
+	<script>
+		(function () {
+			var banner = new MediaBanner(document.getElementById("deadman-banner"));
+			banner.setMix({
+				video: {
+					type: "youtube",
+					key: "LaDA2IPr_sE",
+					muted: true
+				},
+				audio: {
+					type: "youtube",
+					key: "JbOOEzp17Ec",
+					muted: false
+				}
+			});
+		} ());
+	</script>
+
+	<page>
 		<article>
-			<h3>Работать не надо. Жить надо.</h3>
+			<h3>Работать не надо. Жить надо :)</h3>
 
 			<p>&nbsp;</p>
 
 			<p>Выбор ВУЗа после школы</p>
 
-			<h3>Что бы ты ни выбрал, это будет не то, что ты хочешь на самом деле.</h3>
+			<h3>Что бы ты ни выбрал, это будет не то, что ты хочешь.</h3>
 
 			<p>&nbsp;</p>
 
@@ -45,7 +62,9 @@
 
 			<p>&nbsp;</p>
 
-			<p><strong>Правила труда, приносящего удовлетворение</strong></p>
+			<h1 class="page-header" style="font-size: 64px; text-align: left; padding: 0;">Правила труда, приносящего удовлетворение</h1>
+
+			<!-- <p><strong>Правила труда, приносящего удовлетворение</strong></p> -->
 
 			<p>[В скобках даны свойства <a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%BE%D1%82%D0%BE%D0%BA_(%D0%BF%D1%81%D0%B8%D1%85%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F)">&laquo;потокового состояния&raquo;</a>, сформулированные Михаем Чиксентмихайи]:</p>
 
@@ -81,23 +100,28 @@
 
 			<p>Учитесь оценивать сроки и разбивать задачи, чтобы суметь обеспечить себе правило №5.</p>
 
-			<p>Вам придётся отвоёвывать эти правила.</p>
-
-			<p>&nbsp;</p>
-
-			<p><strong>Сколько денег надо?</strong></p>
-
-			<p>Чем меньше, тем лучше - значит нужно будет меньше работать. Не денег надо, а поддержание желаемого образа жизни, при желаемом режиме труда. Расходы в месяц делим на 100 (20 рабочих дней по 5 часов) - цена часа.</p>
-
-
+			<p><em>Вам придётся отвоёвывать эти правила.</em></p>
 		</article>
 
 		<footer><symbol>&#x262D</symbol></footer>
 	</page>
 
+	<div id="kitty-banner" class="media-banner" style="height: 100vh;"></div>
+	<script>
+		(function () {
+			var banner = new MediaBanner(document.getElementById("kitty-banner"));
+			banner.setMix({
+				video: {
+					type: "coub",
+					key: "4aa66",
+					muted: true
+				}
+			});
+		} ());
+	</script>
+
 	<script src="https://cdn.rawgit.com/antivitla/fontfit/master/fontfit.js"></script>
 	<script src="https://cdn.rawgit.com/antivitla/headlift/master/headlift.js"></script>
-	<script src="assets/js/random-from.js"></script>
 
 	<!-- Шрифт печатной машинки -->
 	<script src="http://use.edgefonts.net/old-standard:n4,i4,n7:all.js"></script>

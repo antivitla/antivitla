@@ -1,3 +1,10 @@
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
 function MediaBanner (element) {
   this.element = element;
   this.element.classList.add("media-banner");
@@ -22,7 +29,7 @@ MediaBanner.prototype.setMix = function (options) {
     this.setAudio(options.audio);
   }
   if (options.video) {
-    options.video.muted = true;
+    options.video.muted = options.video.muted ? true : false;
     this.setVideo(options.video);
     this.element.querySelector(".volume.video").style.display = "none";
     this.element.setAttribute("video-type", options.video.type);
@@ -99,22 +106,27 @@ MediaBanner.prototype.embed = function (options) {
 
   switch (options.type) {
     case "youtube":
-      console.log("youtube video", self.element, self);
+      // console.log("youtube video", self.element, self);
       // Listen to ready and remove placeholder image
       if (options.media == "video") {
         window.onYouTubeIframeAPIReady = function () {
+          // console.log("READY");
           var player = new YT.Player(iframe.id, {
+            videoId: options.key,
             events: {
               onReady: function (event) {
-                console.log("ready", event.target, self.element);
+                if (options.muted) {
+                  event.target.mute();
+                }
+                // console.log("ready", event.target, self.element);
               },
               onStateChange: function (event) {
-                console.log("state", event.data, event.target, self.element);
+                // console.log("state", event.data, event.target, self.element);
                 if (event.data == YT.PlayerState.PLAYING) {
-                  console.log("playing",  event.target, self.element);
+                  // console.log("playing",  event.target, self.element);
                   self.element.classList.add("loaded");
                 } else if (event.data == YT.PlayerState.ENDED) {
-                  console.log("ended", event.target, self.element);
+                  // console.log("ended", event.target, self.element);
                   self.element.classList.remove("loaded");
                 }
               }
