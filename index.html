@@ -28,7 +28,7 @@
 				},
 	      audio: {
 	        type: "youtube",
-	        key: ["K8XNvRABkuk", "giMPPilet8Y"][parseInt(Math.random()*2)]
+	        key: ["K8XNvRABkuk", "giMPPilet8Y", "X5Oh9hEZWVw", "p1KDVqlF1JM"][parseInt(Math.random()*4)]
 	      }
 				// audio: {
 				// 	type: "coub",
@@ -67,10 +67,12 @@
 	</page>
 
 	<!-- Птица -->
-	<div style="background: #9DBDE4 url(assets/images/kanyuk.jpg) no-repeat left center; height: 120vh; width: 100%; background-size: 50% auto; border-top: solid #ece7d0 5px;"></div>
+	<div style="background: #9DBDE4 url(assets/images/kanyuk.jpg) no-repeat left center; height: 120vh; width: 100%; background-size: 50% auto; border-top: solid #ece7d0 5px; position: relative;">
+	</div>
 
 	<!-- Гейша -->
-	<div id="geisha-banner" class="media-banner" style="height: 100vh;"></div>
+	<div id="geisha-banner" class="media-banner" style="height: 100vh; position: relative;">
+		<p class="poem" style="position: absolute; left: 50%; bottom: 0%; max-width: 15em; width: 100%; padding: 20px; color: white; z-index: 100; font-size: 30px; line-height: 1.25; transform: translate3d(-50%, 0%, 0); margin: 1em 0; text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.5);">У меня осталось так мало всего &mdash; имущества, времени.. Зачем тратить это на второстепенное?</p>
 	<script>
 		(function () {
 			var banner = new MediaBanner(document.getElementById("geisha-banner"));
