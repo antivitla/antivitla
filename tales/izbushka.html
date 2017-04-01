@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Полёт</title>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../assets/styles.css">
+	<!-- Media banner -->
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script src="../assets/js/media-banner.js"></script>
+</head>
+
+<body>
+
+	<div id="volga-banner" class="media-banner" style="height: 80vh;"></div>
+	<script>
+		(function () {
+			var banner = new MediaBanner(document.getElementById("volga-banner"));
+			banner.setMix({
+				video: {
+					type: "youtube",
+					key: "4gEaAOBX5Cs",
+					muted: true
+				},
+	      audio: {
+	        type: "youtube",
+	        key: "JTjDor3M2pM"
+	      }
+				// audio: {
+				// 	type: "coub",
+				// 	key: ["daz68", "daxcj"][parseInt(Math.random()*2)]
+				// }
+			});
+		} ());
+	</script>
+
+	<page>
+		<article>
+
+			<p style="position: absolute; left: 50%; top: 24rem; transform: translateX(-50%); color: rgb(191, 191, 208); max-width: 700px; width: 80%; text-align: center;">
+			И не вижу ни одной знакомой звезды.<br>
+			Я ходил по всем дорогам и туда, и сюда,<br>
+			<strong>Обернулся - и не смог разглядеть следы.</strong><br>
+			<small style="display: block; margin-top: 5px; font-size: 14px;">В. Цой</small></p>
+
+			<p><em>Я вышел из лесной избушки, по сугробам, без дороги. <br>Я не нашёл что искал, а обратную дорогу потерял. <br>Я решил идти своим путём и проиграл.<br>Прости, отец.</em></p>
+
+		</article>
+
+		<footer>
+			<symbol>&#x2620;</symbol>
+			<date>2016</date>
+		</footer>
+
+	</page>
+
+	<script src="https://cdn.rawgit.com/antivitla/fontfit/master/fontfit.js"></script>
+	<script src="https://cdn.rawgit.com/antivitla/headlift/master/headlift.js"></script>
+
+	<!-- Шрифт печатной машинки -->
+	<script src="http://use.edgefonts.net/old-standard:n4,i4,n7:all.js"></script>
+
+	<!-- Google Analythics -->
+	<script>
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-22239978-1']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+</body>
+</html>
