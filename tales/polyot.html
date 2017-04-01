@@ -6,17 +6,43 @@
 	<title>Полёт</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../assets/styles.css">
+	<!-- Media banner -->
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script src="../assets/js/media-banner.js"></script>
 </head>
 
 <body>
 
+	<div id="volga-banner" class="media-banner" style="height: 80vh;"></div>
+	<script>
+		(function () {
+			var banner = new MediaBanner(document.getElementById("volga-banner"));
+			banner.setMix({
+				video: {
+					type: "youtube",
+					key: "4gEaAOBX5Cs",
+					muted: true
+				},
+	      audio: {
+	        type: "youtube",
+	        key: "JTjDor3M2pM"
+	      }
+				// audio: {
+				// 	type: "coub",
+				// 	key: ["daz68", "daxcj"][parseInt(Math.random()*2)]
+				// }
+			});
+		} ());
+	</script>
+
 	<page>
-
-		<header data-headlift>
-			<span data-fontfit>Полёт</span>
-		</header>
-
 		<article>
+
+			<p style="position: absolute; left: 50%; top: 4rem; transform: translateX(-50%); color: rgb(191, 191, 208); max-width: 700px; width: 80%; text-align: center;">
+			И не вижу ни одной знакомой звезды.<br>
+			Я ходил по всем дорогам и туда, и сюда,<br>
+			<strong>Обернулся - и не смог разглядеть следы.</strong><br>
+			<small style="display: block; margin-top: 5px; font-size: 14px;">В. Цой</small></p>
 
 			<p>Рельсы оборвались в пропасть. Сзади услужливо подтолкнули. И вот ты летишь вниз соображая как же быть ))) Что бы ты ни делал или не думал, это никак не остановит падения. Впрочем может замедлить! Парить как белка-летяга. Выиграть ещё немного времени.  С другой стороны, почему бы не насладиться красотами, когда ещё с такого ракурса увидишь. С третьей стороны понимаешь что есть вероятность приземлиться уже мертвым - от холода и депрессии. Это совсем глупо. То есть +1 к наблюдениям красот и прочего поддержания здорового духа в здоровом теле.</p>
 
