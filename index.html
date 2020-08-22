@@ -1,84 +1,76 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<title>Витла</title>
-	<!-- Styles -->
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="/assets/styles.css">
-	<!-- OpenID -->
-	<link rel="openid.server" href="http://www.myopenid.com/server">
-	<link rel="openid.delegate" href="http://antivitla.myopenid.com/">
-	<!-- Media banner -->
-	<script src="https://www.youtube.com/iframe_api"></script>
-	<script src="assets/js/media-banner.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Витла</title>
+  <!-- Styles -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <!-- OpenID -->
+  <link rel="openid.server" href="http://www.myopenid.com/server">
+  <link rel="openid.delegate" href="http://antivitla.myopenid.com/">
+  <!-- Media banner -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="assets/js/media-banner.js"></script>
 </head>
 <body>
 
-	<div id="volga-banner" class="media-banner" style="height: 100vh;"></div>
-	<script>
-		(function () {
-			var banner = new MediaBanner(document.getElementById("volga-banner"));
-			banner.setMix({
-				video: {
-					type: "youtube",
-					key: "_t5o3Smgzrg",
-					muted: true
-				},
-	      audio: {
-	        type: "youtube",
-	        key: ["K8XNvRABkuk", "X5Oh9hEZWVw"][parseInt(Math.random()*3)]
-	      }
-				// audio: {
-				// 	type: "coub",
-				// 	key: ["daz68", "daxcj"][parseInt(Math.random()*2)]
-				// }
-			});
-		} ());
-	</script>
+  <div id="volga-banner" class="media-banner" style="height: 100vh;"></div>
+  <script>
+    (function () {
+      var banner = new MediaBanner(document.getElementById("volga-banner"));
+      banner.setMix({
+        video: {
+          type: "youtube",
+          key: "_t5o3Smgzrg",
+          muted: true
+        }
+      });
+    } ());
+  </script>
 
-	<page class="home">
-		<header style="position: absolute; width: 100%; left: 50%; top: 60vh; transform: translateX(-50%) translateY(-50%);">
-			<img class="duck" src="/assets/images/duck.png" title="Это гусь, а остальное - мой сайт." zonmousedown="toggleDrawer();">
-		</header>
+  <page class="home">
+    <header style="position: absolute; width: 100%; left: 50%; top: 60vh; transform: translateX(-50%) translateY(-50%);">
+      <img class="duck" src="/assets/images/duck.png" title="Это гусь, а остальное - мой сайт." zonmousedown="toggleDrawer();">
+    </header>
 
 
-		<article>
-			<p style="position: absolute; left: 50%; top: 4rem; transform: translateX(-50%); color: #0f2d43; max-width: 700px; width: 80%;">Да я же пуст! Я, Такой-то Виталий Викторович, года рождения, города области, паспорта серии, выдан и прописан &mdash; не имею никакого смысла.</p>
-			<h3><a href="rabota-prinosjashhaja-udovletvorenie.html">Работа, приносящая удовлетворение</a></h3>
-			<h3><a href="rabota-s-neopredeljonnostju.html">Работа с неопределенностью</a></h3>
-			<h3><a href="http://kastaneda.antivitla.ru">Кастанеда. Слова</a></h3>
-			<h3><a href="http://kastaneda.antivitla.ru/books/hegel--nauka-logiki.html">Гегель. Наука логики</a></h3>
+    <article>
+      <p style="position: absolute; left: 50%; top: 4rem; transform: translateX(-50%); color: #0f2d43; max-width: 700px; width: 80%;">Да я же пуст! Я, Такой-то Виталий Викторович, года рождения, города области, паспорта серии, выдан и прописан &mdash; не имею никакого смысла.</p>
+      <h3><a href="rabota-prinosjashhaja-udovletvorenie.html">Работа, приносящая удовлетворение</a></h3>
+      <h3><a href="rabota-s-neopredeljonnostju.html">Работа с неопределенностью</a></h3>
+      <h3><a href="http://kastaneda.antivitla.ru">Кастанеда. Слова</a></h3>
+      <h3><a href="http://kastaneda.antivitla.ru/books/hegel--nauka-logiki.html">Гегель. Наука логики</a></h3>
 
-			<p class="divider">&#x2740;</p>
+      <p class="divider">&#x2740;</p>
 
-			<!-- <h3><a href="tales/izbushka.html">Избушка</a></h3> -->
-			<h3><a href="tales/polyot.html">Полёт (избушка)</a></h3>
-			<h3><a href="tales/test.html">Тест</a></h3>
-			<h3><a href="tales/pro-poezd.html">Про поезд</a></h3>
-			<h3><a href="tales/obo-mne.html">Обо мне</a></h3>
-			<h3><a href="tales/sultan-koshek.html">Султан кошек</a></h3>
-			<h3><a href="tales/pisatel-i-muza.html">Писатель и Муза</a></h3>
+      <!-- <h3><a href="tales/izbushka.html">Избушка</a></h3> -->
+      <h3><a href="tales/polyot.html">Полёт (избушка)</a></h3>
+      <h3><a href="tales/test.html">Тест</a></h3>
+      <h3><a href="tales/pro-poezd.html">Про поезд</a></h3>
+      <h3><a href="tales/obo-mne.html">Обо мне</a></h3>
+      <h3><a href="tales/sultan-koshek.html">Султан кошек</a></h3>
+      <h3><a href="tales/pisatel-i-muza.html">Писатель и Муза</a></h3>
 
-			<p class="divider">&#x266C;</p>
+      <p class="divider">&#x266C;</p>
 
-			<p><a href="https://goo.gl/upQIZq" target="_blank">Ноты для гитары</a> (<nobr>Никита Кошкин</nobr>, Клейньянс, <nobr>Максимо Пухоль</nobr>, <nobr>Иванов-Крамской</nobr>, Бах и другие)</p>
-		</article>
-	</page>
+      <p><a href="https://goo.gl/upQIZq" target="_blank">Ноты для гитары</a> (<nobr>Никита Кошкин</nobr>, Клейньянс, <nobr>Максимо Пухоль</nobr>, <nobr>Иванов-Крамской</nobr>, Бах и другие)</p>
+    </article>
+  </page>
 
-	<!-- Птица -->
-	<div style="background: #9DBDE4 url(assets/images/kanyuk.jpg) no-repeat left center; height: 120vh; width: 100%; background-size: 50% auto; border-top: solid #ece7d0 5px; position: relative;">
+  <!-- Птица -->
+  <div style="background: #9DBDE4 url(assets/images/kanyuk.jpg) no-repeat left center; height: 120vh; width: 100%; background-size: 50% auto; border-top: solid #ece7d0 5px; position: relative;">
     <poem style="position: absolute; left: 50%; top: 50%; padding-right: 2rem; max-width: 40rem; transform: translateY(-50%);">
       <p>Птица-красавица. Какое чудо видеть её в Подмосковье. Кажется что на Земле уже не осталось живого места.</p>
       <p>А всё же это та же трава, что росла и тысячу лет назад. Светит то же солнце, на которое щурился какой-нибудь проходящий по этим местам богатырь.</p>
       <p>В общем это <strong>Канюк</strong>. Или сарыч, или мышелов. Как обычно, неказистое русское название :)</p>
     </poem>
-	</div>
+  </div>
 
   <!-- Ветреный день -->
-  <div style="height: 110vh; position: relative; margin: 0; font-family: serif; background: whitesmoke url(http://i070.radikal.ru/0910/25/2e80ff266e5b.jpg) no-repeat center center; background-size: cover; min-height: 110vh; font-size: 20px;">
-    <poem style="position: absolute; left: 60%; color: #ffffff; top: 50%; transform: translateY(-50%); text-shadow: 0px 1px 3px rgba(0,0,0,0.5); display: block;">
+  <div style="height: 110vh; position: relative; margin: 5px 0;background: whitesmoke url(assets/images/wind.jpg) no-repeat center center; background-size: cover; min-height: 110vh; font-size: 20px;">
+    <poem style="position: absolute; left: 60%; color: #ffffff; top: 40%; transform: translateY(-50%); text-shadow: 0px 1px 3px rgba(255,255,255,0.5); display: block; color: black;">
       <p>
         Тебе не нужно делать то что тебе нужно делать<br>
         Тебе на самом деле не хочется того что хочется<br>
@@ -92,54 +84,54 @@
     </poem>
   </div>
 
-	<!-- Гейша -->
-	<div id="geisha-banner" class="media-banner" style="height: 100vh; position: relative;">
-		<p class="poem" style="position: absolute; left: 50%; bottom: 0%; max-width: 15em; width: 100%; padding: 20px; color: white; z-index: 100; font-size: 30px; line-height: 1.25; transform: translate3d(-50%, 0%, 0); margin: 1em 0; text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.5);">У меня осталось так мало всего &mdash; имущества, времени.. Зачем тратить это на второстепенное?</p>
-	<script>
-		(function () {
-			var banner = new MediaBanner(document.getElementById("geisha-banner"));
-			banner.setMix({
-				video: {
-					type: "coub",
-					key: "cz1yc",
-					muted: true
-				},
-	      // audio: {
-	      //   type: "youtube",
-	      //   key: ["K8XNvRABkuk", "giMPPilet8Y"][parseInt(Math.random()*2)]
-	      // }
-				// audio: {
-				// 	type: "coub",
-				// 	key: ["daz68", "daxcj"][parseInt(Math.random()*2)]
-				// }
-			});
-		} ());
-	</script>
+  <!-- Гейша -->
+  <div id="geisha-banner" class="media-banner" style="height: 100vh; position: relative;">
+    <p class="poem" style="position: absolute; left: 50%; bottom: 0%; max-width: 15em; width: 100%; padding: 20px; color: white; z-index: 100; font-size: 30px; line-height: 1.25; transform: translate3d(-50%, 0%, 0); margin: 1em 0; text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.5);">У меня осталось так мало всего &mdash; имущества, времени.. Зачем тратить это на второстепенное?</p>
+  <script>
+    (function () {
+      var banner = new MediaBanner(document.getElementById("geisha-banner"));
+      banner.setMix({
+        video: {
+          type: "coub",
+          key: "cz1yc",
+          muted: true
+        },
+        // audio: {
+        //   type: "youtube",
+        //   key: ["K8XNvRABkuk", "giMPPilet8Y"][parseInt(Math.random()*2)]
+        // }
+        // audio: {
+        //   type: "coub",
+        //   key: ["daz68", "daxcj"][parseInt(Math.random()*2)]
+        // }
+      });
+    } ());
+  </script>
 
 
-	<script>
-		function toggleDrawer() {
-			var drawer = document.querySelector("drawer");
-			if (drawer) {
-				drawer.classList.toggle("active");
-			}
-		}
-	</script>
+  <script>
+    function toggleDrawer() {
+      var drawer = document.querySelector("drawer");
+      if (drawer) {
+        drawer.classList.toggle("active");
+      }
+    }
+  </script>
 
-	<!-- Шрифт печатной машинки -->
-	<script src="http://use.edgefonts.net/old-standard:n4,i4,n7:all.js"></script>
+  <!-- Шрифт печатной машинки -->
+  <script src="http://use.edgefonts.net/old-standard:n4,i4,n7:all.js"></script>
 
-	<!-- Google Analythics -->
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-22239978-1']);
-		_gaq.push(['_trackPageview']);
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+  <!-- Google Analythics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22239978-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 
 </body>
 </html>

@@ -377,7 +377,7 @@ p.divider {
 
  .media-banner[video-type="coub"]:after {
   position: absolute;
-  content: " ";
+  /* content: " "; */
   z-index: 0;
   left: 0;
   top: 0;
